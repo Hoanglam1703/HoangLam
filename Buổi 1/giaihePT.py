@@ -5,7 +5,7 @@ from tkinter import messagebox
 win = Tk()
 win.title("giai he co n phuong trinh va n an")
 win.geometry('900x900')
-win.configure(bg = 'burlywood')
+win.configure(bg = 'gray')
 
 Label(win, text = 'Giải hệ phương trình n ẩn', font = ('Arial', 13), bg = 'black', fg = 'white', height=2, relief='solid', borderwidth = 2, width = 40).place(x = 250, y = 0)
 
@@ -37,13 +37,13 @@ class Cal:
                 for j in range(int(sopt.get())):
                     self.A[i].append(StringVar())
                     if (i != 0):
-                        Label(win,background = 'purple', font = ('Arial', 12), text = ' + '+a1[j]+f'{i} ', width = 3).place(x = 250 + 80*i, y = 110 + 30*j)#grid(row = i, column = j+2)
+                        Label(win,background = 'black', font = ('Arial', 12), text = ' + '+a1[j]+f'{i} ', width = 3).place(x = 250 + 80*i, y = 110 + 30*j)#grid(row = i, column = j+2)
                     else:
-                        Label(win,background = 'purple', font = ('Arial', 12), text = a1[j]+f'{i} ', width = 3).place(x = 250 + 80*i, y = 110 + 30*j)#grid(row = i, column = j+2)
+                        Label(win,background = 'black', font = ('Arial', 12), text = a1[j]+f'{i} ', width = 3).place(x = 250 + 80*i, y = 110 + 30*j)#grid(row = i, column = j+2)
                     self.entries_A[i].append(Entry(win, textvariable = self.A[i][j], width=3))
                     self.entries_A[i][j].place(x =280 + 83*j, y = 110 + 30*i)#grid(row=i, column=j+4)
                 self.B[i].append(StringVar())
-                Label(win,background = 'purple', font = ('Arial', 12), text = f' = ', width = 3).place( x = 310 + 83*(int(sopt.get())-1), y = 110 + 30*i)#grid(row = i, column = 4)
+                Label(win,background = 'black', font = ('Arial', 12), text = f' = ', width = 3).place( x = 310 + 83*(int(sopt.get())-1), y = 110 + 30*i)#grid(row = i, column = 4)
                 self.entries_B[i].append(Entry(win, textvariable = self.B[i][0], width=3))
                 self.entries_B[i][0].place(x=200 + 83 * (int(sopt.get())+1), y=110 + 30 * i)
         except:
@@ -80,15 +80,15 @@ class Cal:
                 X = np.dot(np.linalg.inv(A), B)
                 for i in range(int(sopt.get())):
 
-                    Label(win,background = 'white', font = ('Arial', 12), fg = 'White', text = f'x{i} = ', width = 4).place( x = 280 + 83*i, y = 650)#grid(row = i, column = 4)
-                    Label(win,background = 'white', font = ('Arial', 12), fg = 'White', text = f'{round(X[i][0], 2)}' + ', ', width = 4).place( x = 320 + 83*i, y = 650)#grid(row = i, column = 4)
+                    Label(win,background = 'white', font = ('Arial', 12), fg = 'black', text = f'x{i} = ', width = 4).place( x = 280 + 83*i, y = 650)#grid(row = i, column = 4)
+                    Label(win,background = 'white', font = ('Arial', 12), fg = 'black', text = f'{round(X[i][0], 2)}' + ', ', width = 4).place( x = 320 + 83*i, y = 650)#grid(row = i, column = 4)
             else:
                 messagebox.showwarning("Error!", "Ma tran khong kha nghich")
         except:
             messagebox.showwarning("Error!", "Nhap sai!")
 def clear():
-    Label(win,background = 'white', width = 180*int(sopt.get()), height = 20).place( x = 240, y = 100)
-    Label(win,background = 'white', width = 100).place( x = 280, y = 650)
+    Label(win,background = 'gray', width = 180*int(sopt.get()), height = 20).place( x = 240, y = 100)
+    Label(win,background = 'gray', width = 100).place( x = 280, y = 650)
     A = []
     entries_A = []
     B = []
